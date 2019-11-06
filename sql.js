@@ -15,7 +15,8 @@ const Article = sequelize.define("article", {
   date: { type: Sequelize.DATE },
   content: { type: Sequelize.TEXT },
   description: { type: Sequelize.STRING },
-  imageUrl: { type: Sequelize.STRING }
+  imageUrl: { type: Sequelize.STRING },
+  viewCount: { type: Sequelize.INTEGER }
 });
 
 init = function() {
@@ -27,7 +28,7 @@ init = function() {
     .catch(err => {
       console.error("Unable to connect to the database: ", err);
     });
-  Article.sync({force: true}).then(() => {
+  Article.sync({ force: true }).then(() => {
     Article.create({
       title: "My First Article",
       key: "my-first-article",
@@ -51,13 +52,22 @@ init = function() {
   });
 };
 
-getArticles = function (callback){
-  Article.findAll({order: sequelize.literal("date desc")}).then(articles => callback(articles));
-}
+getArticles = function(callback) {
+  Article.findAll({ order: sequelize.literal("date desc") }).then(articles =>
+    callback(articles)
+  );
+};
 
-getArticleByKey = function(options, callback){
-  Article.findOne({where : {key: options.key}}).then(article => callback(article));
-}
+getArticleByKey = function(options, callback) {
+  Article.findOne({ where: { key: options.key } }).then(article => {
+    if (article!= null){
+      article.update({
+        viewCount: ++article.viewCount
+      })
+    }
+    callback(article);
+  });
+};
 
 module.exports.init = init;
 module.exports.getArticles = getArticles;
