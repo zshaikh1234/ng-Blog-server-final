@@ -69,6 +69,16 @@ getArticleByKey = function(options, callback) {
   });
 };
 
+
+getDashboardArticles = function(callback) {
+  Article.findAll({ order: sequelize.literal("date desc") }).then(articles =>
+    callback(articles)
+  );
+};
+
+
+
 module.exports.init = init;
 module.exports.getArticles = getArticles;
 module.exports.getArticleByKey = getArticleByKey;
+module.exports.getDashboardArticles = getDashboardArticles;

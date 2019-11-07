@@ -22,3 +22,4 @@ app.get("/", function(request, response){
 });
 
 require("./article.js")(app, sql);
+require("./dashboard.js")(app, sql);
