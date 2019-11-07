@@ -16,10 +16,12 @@ const Article = sequelize.define("article", {
   content: { type: Sequelize.TEXT },
   description: { type: Sequelize.STRING },
   imageUrl: { type: Sequelize.STRING },
-  viewCount: { type: Sequelize.INTEGER }
+  viewCount: { type: Sequelize.INTEGER },
+  published: { type: Sequelize.BOOLEAN }
+
 });
 
-init = function() {
+init = function () {
   sequelize
     .authenticate()
     .then(() => {
@@ -36,7 +38,8 @@ init = function() {
       content:
         "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu ipsum eu est porta ultricies eget a sapien. Integer vulputate tempor risus, at placerat metus condimentum at. Vestibulum at nisl vitae mi imperdiet ultrices nec eu mi. Nullam non aliquet nibh. Curabitur id hendrerit leo, maximus vulputate est. Mauris vitae nibh a libero vulputate tincidunt et nec mi. Mauris lacinia velit vel lectus pharetra cursus. Vivamus sed ante ante. Morbi rutrum luctus ligula, in porttitor tellus pharetra quis. Aenean blandit risus eu placerat commodo. Vestibulum id elementum nibh. Nulla fringilla, diam sit amet elementum tincidunt, mauris ante aliquam neque, varius rhoncus magna libero viverra nunc. Ut sed mi non ligula posuere lacinia. Fusce aliquet nisl et dui facilisis euismod.</P><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu ipsum eu est porta ultricies eget a sapien. Integer vulputate tempor risus, at placerat metus condimentum at. Vestibulum at nisl vitae mi imperdiet ultrices nec eu mi. Nullam non aliquet nibh. Curabitur id hendrerit leo, maximus vulputate est. Mauris vitae nibh a libero vulputate tincidunt et nec mi. Mauris lacinia velit vel lectus pharetra cursus. Vivamus sed ante ante. Morbi rutrum luctus ligula, in porttitor tellus pharetra quis. Aenean blandit risus eu placerat commodo. Vestibulum id elementum nibh. Nulla fringilla, diam sit amet elementum tincidunt, mauris ante aliquam neque, varius rhoncus magna libero viverra nunc. Ut sed mi non ligula posuere lacinia. Fusce aliquet nisl et dui facilisis euismod.</P><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu ipsum eu est porta ultricies eget a sapien. Integer vulputate tempor risus, at placerat metus condimentum at. Vestibulum at nisl vitae mi imperdiet ultrices nec eu mi. Nullam non aliquet nibh. Curabitur id hendrerit leo, maximus vulputate est. Mauris vitae nibh a libero vulputate tincidunt et nec mi. Mauris lacinia velit vel lectus pharetra cursus. Vivamus sed ante ante. Morbi rutrum luctus ligula, in porttitor tellus pharetra quis. Aenean blandit risus eu placerat commodo. Vestibulum id elementum nibh. Nulla fringilla, diam sit amet elementum tincidunt, mauris ante aliquam neque, varius rhoncus magna libero viverra nunc. Ut sed mi non ligula posuere lacinia. Fusce aliquet nisl et dui facilisis euismod.</P><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu ipsum eu est porta ultricies eget a sapien. Integer vulputate tempor risus, at placerat metus condimentum at. Vestibulum at nisl vitae mi imperdiet ultrices nec eu mi. Nullam non aliquet nibh. Curabitur id hendrerit leo, maximus vulputate est. Mauris vitae nibh a libero vulputate tincidunt et nec mi. Mauris lacinia velit vel lectus pharetra cursus. Vivamus sed ante ante. Morbi rutrum luctus ligula, in porttitor tellus pharetra quis. Aenean blandit risus eu placerat commodo. Vestibulum id elementum nibh. Nulla fringilla, diam sit amet elementum tincidunt, mauris ante aliquam neque, varius rhoncus magna libero viverra nunc. Ut sed mi non ligula posuere lacinia. Fusce aliquet nisl et dui facilisis euismod.</P><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu ipsum eu est porta ultricies eget a sapien. Integer vulputate tempor risus, at placerat metus condimentum at. Vestibulum at nisl vitae mi imperdiet ultrices nec eu mi. Nullam non aliquet nibh. Curabitur id hendrerit leo, maximus vulputate est. Mauris vitae nibh a libero vulputate tincidunt et nec mi. Mauris lacinia velit vel lectus pharetra cursus. Vivamus sed ante ante. Morbi rutrum luctus ligula, in porttitor tellus pharetra quis. Aenean blandit risus eu placerat commodo. Vestibulum id elementum nibh. Nulla fringilla, diam sit amet elementum tincidunt, mauris ante aliquam neque, varius rhoncus magna libero viverra nunc. Ut sed mi non ligula posuere lacinia. Fusce aliquet nisl et dui facilisis euismod.</P><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu ipsum eu est porta ultricies eget a sapien. Integer vulputate tempor risus, at placerat metus condimentum at. Vestibulum at nisl vitae mi imperdiet ultrices nec eu mi. Nullam non aliquet nibh. Curabitur id hendrerit leo, maximus vulputate est. Mauris vitae nibh a libero vulputate tincidunt et nec mi. Mauris lacinia velit vel lectus pharetra cursus. Vivamus sed ante ante. Morbi rutrum luctus ligula, in porttitor tellus pharetra quis. Aenean blandit risus eu placerat commodo. Vestibulum id elementum nibh. Nulla fringilla, diam sit amet elementum tincidunt, mauris ante aliquam neque, varius rhoncus magna libero viverra nunc. Ut sed mi non ligula posuere lacinia. Fusce aliquet nisl et dui facilisis euismod.</P><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu ipsum eu est porta ultricies eget a sapien. Integer vulputate tempor risus, at placerat metus condimentum at. Vestibulum at nisl vitae mi imperdiet ultrices nec eu mi. Nullam non aliquet nibh. Curabitur id hendrerit leo, maximus vulputate est. Mauris vitae nibh a libero vulputate tincidunt et nec mi. Mauris lacinia velit vel lectus pharetra cursus. Vivamus sed ante ante. Morbi rutrum luctus ligula, in porttitor tellus pharetra quis. Aenean blandit risus eu placerat commodo. Vestibulum id elementum nibh. Nulla fringilla, diam sit amet elementum tincidunt, mauris ante aliquam neque, varius rhoncus magna libero viverra nunc. Ut sed mi non ligula posuere lacinia. Fusce aliquet nisl et dui facilisis euismod.</P>",
       description: "This is my First aritcle, Please read it",
-      imageUrl: "http://angular.io/assets/images/logos/angular/angular.png"
+      imageUrl: "http://angular.io/assets/images/logos/angular/angular.png",
+      published: true
     });
 
     Article.create({
@@ -47,20 +50,21 @@ init = function() {
         "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu ipsum eu est porta ultricies eget a sapien. Integer vulputate tempor risus, at placerat metus condimentum at. Vestibulum at nisl vitae mi imperdiet ultrices nec eu mi. Nullam non aliquet nibh. Curabitur id hendrerit leo, maximus vulputate est. Mauris vitae nibh a libero vulputate tincidunt et nec mi. Mauris lacinia velit vel lectus pharetra cursus. Vivamus sed ante ante. Morbi rutrum luctus ligula, in porttitor tellus pharetra quis. Aenean blandit risus eu placerat commodo. Vestibulum id elementum nibh. Nulla fringilla, diam sit amet elementum tincidunt, mauris ante aliquam neque, varius rhoncus magna libero viverra nunc. Ut sed mi non ligula posuere lacinia. Fusce aliquet nisl et dui facilisis euismod.</P><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu ipsum eu est porta ultricies eget a sapien. Integer vulputate tempor risus, at placerat metus condimentum at. Vestibulum at nisl vitae mi imperdiet ultrices nec eu mi. Nullam non aliquet nibh. Curabitur id hendrerit leo, maximus vulputate est. Mauris vitae nibh a libero vulputate tincidunt et nec mi. Mauris lacinia velit vel lectus pharetra cursus. Vivamus sed ante ante. Morbi rutrum luctus ligula, in porttitor tellus pharetra quis. Aenean blandit risus eu placerat commodo. Vestibulum id elementum nibh. Nulla fringilla, diam sit amet elementum tincidunt, mauris ante aliquam neque, varius rhoncus magna libero viverra nunc. Ut sed mi non ligula posuere lacinia. Fusce aliquet nisl et dui facilisis euismod.</P><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu ipsum eu est porta ultricies eget a sapien. Integer vulputate tempor risus, at placerat metus condimentum at. Vestibulum at nisl vitae mi imperdiet ultrices nec eu mi. Nullam non aliquet nibh. Curabitur id hendrerit leo, maximus vulputate est. Mauris vitae nibh a libero vulputate tincidunt et nec mi. Mauris lacinia velit vel lectus pharetra cursus. Vivamus sed ante ante. Morbi rutrum luctus ligula, in porttitor tellus pharetra quis. Aenean blandit risus eu placerat commodo. Vestibulum id elementum nibh. Nulla fringilla, diam sit amet elementum tincidunt, mauris ante aliquam neque, varius rhoncus magna libero viverra nunc. Ut sed mi non ligula posuere lacinia. Fusce aliquet nisl et dui facilisis euismod.</P><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu ipsum eu est porta ultricies eget a sapien. Integer vulputate tempor risus, at placerat metus condimentum at. Vestibulum at nisl vitae mi imperdiet ultrices nec eu mi. Nullam non aliquet nibh. Curabitur id hendrerit leo, maximus vulputate est. Mauris vitae nibh a libero vulputate tincidunt et nec mi. Mauris lacinia velit vel lectus pharetra cursus. Vivamus sed ante ante. Morbi rutrum luctus ligula, in porttitor tellus pharetra quis. Aenean blandit risus eu placerat commodo. Vestibulum id elementum nibh. Nulla fringilla, diam sit amet elementum tincidunt, mauris ante aliquam neque, varius rhoncus magna libero viverra nunc. Ut sed mi non ligula posuere lacinia. Fusce aliquet nisl et dui facilisis euismod.</P><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu ipsum eu est porta ultricies eget a sapien. Integer vulputate tempor risus, at placerat metus condimentum at. Vestibulum at nisl vitae mi imperdiet ultrices nec eu mi. Nullam non aliquet nibh. Curabitur id hendrerit leo, maximus vulputate est. Mauris vitae nibh a libero vulputate tincidunt et nec mi. Mauris lacinia velit vel lectus pharetra cursus. Vivamus sed ante ante. Morbi rutrum luctus ligula, in porttitor tellus pharetra quis. Aenean blandit risus eu placerat commodo. Vestibulum id elementum nibh. Nulla fringilla, diam sit amet elementum tincidunt, mauris ante aliquam neque, varius rhoncus magna libero viverra nunc. Ut sed mi non ligula posuere lacinia. Fusce aliquet nisl et dui facilisis euismod.</P><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu ipsum eu est porta ultricies eget a sapien. Integer vulputate tempor risus, at placerat metus condimentum at. Vestibulum at nisl vitae mi imperdiet ultrices nec eu mi. Nullam non aliquet nibh. Curabitur id hendrerit leo, maximus vulputate est. Mauris vitae nibh a libero vulputate tincidunt et nec mi. Mauris lacinia velit vel lectus pharetra cursus. Vivamus sed ante ante. Morbi rutrum luctus ligula, in porttitor tellus pharetra quis. Aenean blandit risus eu placerat commodo. Vestibulum id elementum nibh. Nulla fringilla, diam sit amet elementum tincidunt, mauris ante aliquam neque, varius rhoncus magna libero viverra nunc. Ut sed mi non ligula posuere lacinia. Fusce aliquet nisl et dui facilisis euismod.</P>",
       description: "Alos great article",
       imageUrl:
-        "http://angular.io/assets/images/logos/angular/angular_solidBlack.png"
+        "http://angular.io/assets/images/logos/angular/angular_solidBlack.png",
+      published: false
     });
   });
 };
 
-getArticles = function(callback) {
-  Article.findAll({ order: sequelize.literal("date desc") }).then(articles =>
+getArticles = function (callback) {
+  Article.findAll({ order: sequelize.literal("date desc"), where: { published: true } }).then(articles =>
     callback(articles)
   );
 };
 
-getArticleByKey = function(options, callback) {
-  Article.findOne({ where: { key: options.key } }).then(article => {
-    if (article!= null){
+getArticleByKey = function (options, callback) {
+  Article.findOne({ where: { key: options.key, published: true } }).then(article => {
+    if (article != null) {
       article.update({
         viewCount: ++article.viewCount
       })
@@ -70,7 +74,7 @@ getArticleByKey = function(options, callback) {
 };
 
 
-getDashboardArticles = function(callback) {
+getDashboardArticles = function (callback) {
   Article.findAll({ order: sequelize.literal("date desc") }).then(articles =>
     callback(articles)
   );
