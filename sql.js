@@ -80,9 +80,20 @@ getDashboardArticles = function (callback) {
   );
 };
 
-
+updateArticlePublishState = function (request, callback) {
+  Article.findOne({where: {id: request.id}}).then(function (resultSingleArticle) {
+    if (resultSingleArticle != null){
+      resultSingleArticle.update({
+        published: request.published
+      });
+    }
+    callback(resultSingleArticle);
+  });
+  
+};
 
 module.exports.init = init;
 module.exports.getArticles = getArticles;
 module.exports.getArticleByKey = getArticleByKey;
 module.exports.getDashboardArticles = getDashboardArticles;
+module.exports.updateArticlePublishState = updateArticlePublishState;
